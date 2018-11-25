@@ -1,6 +1,7 @@
 const axios = require('axios');
+const keys = require('./keys');
 
-const url = 'https://api.themoviedb.org/3/movie/550?api_key=f8be595d434ed3dc41d8c73f0760f653';
+const url = `https://api.themoviedb.org/3/movie/550?api_key=${keys.apiKey}`;
 
 const getData = async url => {
     try {
