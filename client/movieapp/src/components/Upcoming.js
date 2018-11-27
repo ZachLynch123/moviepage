@@ -3,9 +3,10 @@ import axios from 'axios';
 import keys from '../keys';
 
 const Upcoming = (props) => {
-    console.log(props.data);
     return (
-        <h1>hello!</h1>
+        <ul>
+            {props.data.map(movie => <li>{movie.title}</li>)}
+        </ul>
     );
 }
 /* class Upcoming extends React.Component{
