@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import keys from '../keys';
+
 
 const Upcoming = (props) => {
     return (

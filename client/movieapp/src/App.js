@@ -4,12 +4,15 @@ import keys from './keys';
 import './App.css';
 import NowPlaying from './components/NowPlaying';
 import Upcoming from './components/Upcoming';
+import TopRated from './components/TopRated';
 
 
 class App extends Component {
 
   state = {
-    upcoming: []
+    upcoming: [],
+    nowPlaying: [],
+    topRated: [],
   }
 
   componentDidMount() {
@@ -24,6 +27,7 @@ class App extends Component {
       <div className="App">
        { <NowPlaying />}
         <Upcoming data={this.state.upcoming}/>
+        <TopRated />
         
       </div>
     );
