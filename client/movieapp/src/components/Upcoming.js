@@ -2,9 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import keys from '../keys';
 
-
-class Upcoming extends React.Component{
-
+const Upcoming = (props) => {
+    console.log(props.data);
+    return (
+        <h1>hello!</h1>
+    );
+}
+/* class Upcoming extends React.Component{
+    constructor(props) {
+        super(props);
+    }
     state = {
         movies: []
     }
@@ -30,6 +37,6 @@ class Upcoming extends React.Component{
             </div>
         )
     }
-}
+} */
 
 export default Upcoming;
