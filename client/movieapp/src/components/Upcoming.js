@@ -2,10 +2,10 @@ import React from 'react';
 
 
 const Upcoming = (props) => {
+    console.log(props)
+    const { backdrop_path, id, poster_path, title, voter_average} = props.data;
     return (
-        <ul>
-            {props.data.map(movie => <li>{movie.title}</li>)}
-        </ul>
+        <h1>{title}</h1>
     );
 }
 /* class Upcoming extends React.Component{

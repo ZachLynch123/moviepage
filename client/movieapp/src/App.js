@@ -23,11 +23,21 @@ class App extends Component {
       })
   }
   render() {
+    const { upcoming } = this.state;
     return (
       <div className="App">
-       { <NowPlaying />}
-        <Upcoming data={this.state.upcoming}/>
-        <TopRated />
+       {/* <NowPlaying /> */}
+       <div className="cards-slider">
+          <div className="card-slider-wrapper">
+          {
+            upcoming.map(movie => <Upcoming data={movie} key={movie.id}/>)
+          }
+          />
+          </div>
+        </div>
+        
+        
+     {/*    <TopRated /> */}
         
       </div>
     );

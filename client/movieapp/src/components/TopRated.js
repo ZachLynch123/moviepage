@@ -4,16 +4,24 @@ import keys from '../keys';
 
 
 class TopRated extends React.Component {
+    constructor(props) {
+        super(props);
 
-    state = {
-        TopRated: []
+        this.state = {
+            result: [],
+            activeIndex: 0
+        };
+    }
+
+    gotToSlide(index) {
+        this.setState({ activeIndex: index });
     }
 
     componentDidMount(){
         axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${keys.apiKey}&language=en-US&page=1`)
         .then(res => {
             const movies = res.data.results;
-            this.setState({ TopRated: movies});
+            this.setState({ result: movies});
         });
     }
 
@@ -23,7 +31,7 @@ class TopRated extends React.Component {
         return(
             <div>
                 <ul>
-                    {this.state.TopRated.map(movies => <li>{movies.title}</li>)}
+                    {this.state.result.map(movies => <li>{movies.title}</li>)}
                 </ul>
             </div>
         );
