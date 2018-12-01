@@ -27,7 +27,6 @@ class App extends Component {
     const { upcoming } = this.state;
     return (
       <div className="App">
-       {/* <NowPlaying /> */}
        <div className="cards-slider">
           <div className="card-slider-wrapper">
           {
@@ -35,11 +34,7 @@ class App extends Component {
           }
           />
           </div>
-        </div>
-        
-        
-     {/*    <TopRated /> */}
-        
+        </div>        
       </div>
     );
   }
