@@ -3,9 +3,16 @@ import React from 'react';
 
 const Upcoming = (props) => {
     console.log(props)
+    const BASE_URL = "https://image.tmdb.org/t/p/w500";
     const { backdrop_path, id, poster_path, title, voter_average} = props.data;
     return (
-        <h1>{title}</h1>
+        <div className="card" id="card">
+            <img className="card-img-top" src={BASE_URL + backdrop_path} alt="#" />
+            <div className="card-title">
+                {title}
+            </div>
+            <div className="card-body">genre goes here</div>
+        </div>
     );
 }
 /* class Upcoming extends React.Component{

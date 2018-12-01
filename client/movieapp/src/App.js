@@ -13,6 +13,7 @@ class App extends Component {
     upcoming: [],
     nowPlaying: [],
     topRated: [],
+    genres: []
   }
 
   componentDidMount() {
@@ -20,7 +21,7 @@ class App extends Component {
       .then(res => {
           const upC = res.data.results;
           this.setState({upcoming: upC});
-      })
+      });
   }
   render() {
     const { upcoming } = this.state;
