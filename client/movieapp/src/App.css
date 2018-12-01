@@ -22,8 +22,21 @@
   color: #61dafb;
 }
 
+.card-slider {
+  position: relative;
+  max-width: 80%;
+}
+
+.card-slider-wrapper {
+  position: absolute;
+  display: flex;
+}
+
+
 #card {
-  width: 18rem;
+  margin: auto auto;
+  flex: 1;
+  min-width: 18rem;
   border: none;
   border-radius: 10px;
 }
