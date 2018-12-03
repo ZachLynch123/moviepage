@@ -4,9 +4,15 @@ import React from 'react';
 const Upcoming = (props) => {
     const BASE_URL = "https://image.tmdb.org/t/p/w500";
     const { backdrop_path, id, poster_path, title, voter_average} = props.data;
+    let picture = '';
+    if (backdrop_path == null) {
+        picture = poster_path;
+    } else {
+        picture = backdrop_path;
+    }
     return (
         <div className="card" id="card">
-            <img className="card-img-top" src={BASE_URL + backdrop_path} alt="#" />
+            <img className="card-img-top" src={BASE_URL + picture} alt="#" />
             <div className="card-title">
                 {title}
             </div>

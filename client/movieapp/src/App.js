@@ -30,7 +30,6 @@ class App extends Component {
       index: newIndex,
       upcoming: movies
     });
-    console.log(this.state.index);
 
   }
 
@@ -77,7 +76,6 @@ class App extends Component {
           {
              upcoming.map(movie => <Upcoming data={movie} key={movie.id}/>)
            }
-          
           </div>
         </div>        
       </div>

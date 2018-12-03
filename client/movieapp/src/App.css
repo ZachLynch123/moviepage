@@ -7,6 +7,7 @@
   height: 40vmin;
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,7 +35,7 @@
 
 
 #card {
-  margin: auto auto;
+  margin: 0 auto;
   flex: 1;
   min-width: 18rem;
   border: none;
