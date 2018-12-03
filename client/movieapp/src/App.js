@@ -13,30 +13,59 @@ class App extends Component {
     upcoming: [],
     nowPlaying: [],
     topRated: [],
-    genres: []
+    genres: [],
+    upcomingMovie: [],
+    isLoaded: false,
+    index: 0
   }
 
+  nextProperty = () => {
+    const newIndex = this.state.index + 1;
+    this.setState({
+      index: newIndex
+    })
+  }
+
+ 
   componentDidMount() {
       axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${keys.apiKey}&language=en-US&page=1`)
       .then(res => {
           const upC = res.data.results;
-          this.setState({upcoming: upC});
+          this.setState({
+            upcoming: upC,
+            isLoaded:true,
+            upcomingMovie: upC[0]
+          });
       });
   }
   render() {
-    const { upcoming } = this.state;
+    const { upcoming, index, isLoaded } = this.state;
+    const upcomingMovie = upcoming[index];
+    if (isLoaded && upcomingMovie !== undefined){
+      console.log(upcomingMovie)
+
     return (
       <div className="App">
+      <button>Prev</button>
+      <button onClick={upcoming => this.nextProperty(upcoming)}>Next</button>
        <div className="cards-slider">
-          <div className="card-slider-wrapper">
+          <div className="card-slider-wrapper" style={
+            {
+              'transform': `translateX(-${index*(100/upcoming.length) + 3}%)`
+            }
+          }>
           {
-            upcoming.map(movie => <Upcoming data={movie} key={movie.id}/>)
-          }
+             upcoming.map(movie => <Upcoming data={movie} key={movie.id}/>)
+           }
           />
           </div>
         </div>        
       </div>
     );
+}
+else {
+  return(<div>Loading..</div>)
+}
   }
 }
 

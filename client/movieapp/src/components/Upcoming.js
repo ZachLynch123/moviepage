@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const Upcoming = (props) => {
-    console.log(props)
     const BASE_URL = "https://image.tmdb.org/t/p/w500";
     const { backdrop_path, id, poster_path, title, voter_average} = props.data;
     return (
