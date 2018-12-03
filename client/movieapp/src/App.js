@@ -21,6 +21,10 @@ class App extends Component {
 
   // Sets new index for carousel, moving it to the right by 1
   nextMovie = (movieArray) => {
+    if (this.state.index >= 20) {
+      this.state.index = 0;
+      console.log('hello ' + this.state.index)
+    }
     const newIndex = this.state.index + 1;
     //let last = movieArray.slice(-1);
     // let rest = movieArray.slice(0, -1);
@@ -30,6 +34,7 @@ class App extends Component {
       index: newIndex,
       upcoming: movies
     });
+    console.log(this.state.index);
 
   }
 
@@ -40,8 +45,8 @@ class App extends Component {
     let movies = [last, ...rest];
     this.setState({
       index: newIndex,
-      upcoming: movies
-    })
+      movieArray: movies
+    });
   }
 
  
@@ -61,8 +66,6 @@ class App extends Component {
   render() {
     const { upcoming, index, isLoaded } = this.state;
     const upcomingMovie = upcoming[index];
-    if (isLoaded && upcomingMovie !== undefined){
-
     return (
       <div className="App">
       <button onClick={() => this.previousMovie(upcoming)}>Prev</button>
@@ -81,10 +84,7 @@ class App extends Component {
       </div>
     );
 }
-else {
-  return(<div>Loading..</div>)
-}
-  }
+
 }
 
 export default App;
