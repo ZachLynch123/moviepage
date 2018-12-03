@@ -19,10 +19,29 @@ class App extends Component {
     index: 0
   }
 
-  nextProperty = () => {
+  // Sets new index for carousel, moving it to the right by 1
+  nextMovie = (movieArray) => {
     const newIndex = this.state.index + 1;
+    //let last = movieArray.slice(-1);
+    // let rest = movieArray.slice(0, -1);
+    let [first, ...rest] = movieArray;
+    let movies = [...rest, first];
     this.setState({
-      index: newIndex
+      index: newIndex,
+      upcoming: movies
+    });
+    console.log(this.state.index);
+
+  }
+
+  previousMovie = (movieArray) => {
+    const newIndex = this.state.index - 1;
+    let last = movieArray.slice(-1);
+    let rest = movieArray.slice(0,-1);
+    let movies = [last, ...rest];
+    this.setState({
+      index: newIndex,
+      upcoming: movies
     })
   }
 
@@ -37,17 +56,18 @@ class App extends Component {
             upcomingMovie: upC[0]
           });
       });
+
+      
   }
   render() {
     const { upcoming, index, isLoaded } = this.state;
     const upcomingMovie = upcoming[index];
     if (isLoaded && upcomingMovie !== undefined){
-      console.log(upcomingMovie)
 
     return (
       <div className="App">
-      <button>Prev</button>
-      <button onClick={upcoming => this.nextProperty(upcoming)}>Next</button>
+      <button onClick={() => this.previousMovie(upcoming)}>Prev</button>
+      <button onClick={() => this.nextMovie(upcoming)}>Next</button>
        <div className="cards-slider">
           <div className="card-slider-wrapper" style={
             {
@@ -57,7 +77,7 @@ class App extends Component {
           {
              upcoming.map(movie => <Upcoming data={movie} key={movie.id}/>)
            }
-          />
+          
           </div>
         </div>        
       </div>
