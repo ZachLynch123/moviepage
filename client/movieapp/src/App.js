@@ -14,7 +14,6 @@ class App extends Component {
     nowPlaying: [],
     topRated: [],
     genres: [],
-    upcomingMovie: [],
     isLoaded: false,
     index: 0
   }
@@ -22,6 +21,7 @@ class App extends Component {
   // Sets new index for carousel, moving it to the right by 1
   nextMovie = (movieArray) => {
     if (this.state.index >= 20) {
+      // use setState instead of mutating state directly
       this.state.index = 0;
       console.log('hello ' + this.state.index)
     }
@@ -57,8 +57,14 @@ class App extends Component {
           this.setState({
             upcoming: upC,
             isLoaded:true,
-            upcomingMovie: upC[0]
           });
+      })
+      .then(res => {
+        const moviesList = res.data.resluts;
+        this.setState({
+          topRated: moviesList,
+          isLoaded: true
+        });
       });
 
       
