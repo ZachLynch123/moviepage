@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import keys from './keys';
 import './App.css';
-import NowPlaying from './components/NowPlaying';
 import MovieImageSlider from './components/MovieImageSlider';
-import TopRated from './components/TopRated';
 
 
 class App extends Component {
