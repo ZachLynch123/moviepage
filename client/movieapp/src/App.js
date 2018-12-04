@@ -21,11 +21,8 @@ class App extends Component {
     if (this.state.index >= 20) {
       // use setState instead of mutating state directly
       this.state.index = 0;
-      console.log('hello ' + this.state.index)
     }
     const newIndex = this.state.index + 1;
-    //let last = movieArray.slice(-1);
-    // let rest = movieArray.slice(0, -1);
     let [first, ...rest] = movieArray;
     let movies = [...rest, first];
     this.setState({
@@ -47,7 +44,7 @@ class App extends Component {
     });
   }
 
- 
+  // React lifecycle component (initial) that fetches all the data needed on this page in 1 axious request
   componentDidMount() {
     axios.all([
       axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${keys.apiKey}&language=en-US&page=1`),
