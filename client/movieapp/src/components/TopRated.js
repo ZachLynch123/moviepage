@@ -3,7 +3,11 @@ import axios from 'axios';
 import keys from '../keys';
 
 
-class TopRated extends React.Component {
+const TopRated = (props) => {
+    
+}
+
+/* class TopRated extends React.Component {
     constructor(props) {
         super(props);
 
@@ -36,6 +40,6 @@ class TopRated extends React.Component {
             </div>
         );
     }
-}
+} */
 
 export default TopRated;

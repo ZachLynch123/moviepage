@@ -3,7 +3,7 @@ import axios from 'axios';
 import keys from './keys';
 import './App.css';
 import NowPlaying from './components/NowPlaying';
-import Upcoming from './components/Upcoming';
+import MovieImageSlider from './components/MovieImageSlider';
 import TopRated from './components/TopRated';
 
 
@@ -51,27 +51,29 @@ class App extends Component {
 
  
   componentDidMount() {
-      axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${keys.apiKey}&language=en-US&page=1`)
-      .then(res => {
-          const upC = res.data.results;
-          this.setState({
-            upcoming: upC,
-            isLoaded:true,
-          });
-      })
-      .then(res => {
-        const moviesList = res.data.resluts;
+    axios.all([
+      axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${keys.apiKey}&language=en-US&page=1`),
+      axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.apiKey}&language=en-US`),
+      axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${keys.apiKey}&language=en-US&page=1`)
+    ])
+      .then(axios.spread((upcomingRes, nowPlayingRes, topRatedRes) => {
+        const upC = upcomingRes.data.results;
+        const nowPlay = nowPlayingRes.data.results;
+        const topRate = topRatedRes.data.results;
+        console.log(upcomingRes.data.results)
+        
         this.setState({
-          topRated: moviesList,
+          upcoming: upC,
+          nowPlaying: nowPlay,
+          topRated: topRate,
           isLoaded: true
-        });
-      });
+        })
+      }));
 
       
   }
   render() {
-    const { upcoming, index, isLoaded } = this.state;
-    const upcomingMovie = upcoming[index];
+    const { index, nowPlaying, topRated, upcoming } = this.state;
     return (
       <div className="App">
       <button onClick={() => this.previousMovie(upcoming)}>Prev</button>
@@ -79,14 +81,28 @@ class App extends Component {
        <div className="cards-slider">
           <div className="card-slider-wrapper" style={
             {
-              'transform': `translateX(-${index*(100/upcoming.length) + 3}%)`
-            }
+               'transform': `translateX(-${index*(100/upcoming.length) + 3}%)`
+           }
           }>
           {
-             upcoming.map(movie => <Upcoming data={movie} key={movie.id}/>)
+              upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
            }
           </div>
-        </div>        
+        </div> 
+        <div className="cards-slider toprated">
+          <div className="card-slider-wrapper toprated">
+          {
+              topRated.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
+            }
+           </div>
+           </div>
+        <div className="card-slider">
+            <div className="card-slider-wrapper">
+            {
+              nowPlaying.map(movie => <MovieImageSlider data={movie} key={movie.id} />)
+            }
+            </div>
+        </div>
       </div>
     );
 }

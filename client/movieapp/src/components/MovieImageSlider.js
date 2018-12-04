@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Upcoming = (props) => {
+const MovieImageSlider = (props) => {
     const BASE_URL = "https://image.tmdb.org/t/p/w500";
     const { backdrop_path, id, poster_path, title, voter_average} = props.data;
     let picture = '';
@@ -20,7 +20,7 @@ const Upcoming = (props) => {
         </div>
     );
 }
-/* class Upcoming extends React.Component{
+/* class MovieImageSlider extends React.Component{
     constructor(props) {
         super(props);
     }
@@ -30,7 +30,7 @@ const Upcoming = (props) => {
 
 
     componentDidMount(){
-        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${keys.apiKey}&language=en-US&page=1`)
+        axios.get(`https://api.themoviedb.org/3/movie/MovieImageSlider?api_key=${keys.apiKey}&language=en-US&page=1`)
         .then(res => {
             const movies = res.data.results;
             this.setState({movies});
@@ -51,4 +51,4 @@ const Upcoming = (props) => {
     }
 } */
 
-export default Upcoming;
+export default MovieImageSlider;
