@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Carousel } from 'react-bootstrap';
 import axios from 'axios';
 import keys from './keys';
 import './App.css';
@@ -54,15 +55,15 @@ class App extends Component {
       .then(axios.spread((upcomingRes, nowPlayingRes, topRatedRes) => {
         const upC = upcomingRes.data.results;
         const nowPlay = nowPlayingRes.data.results;
-        const topRate = topRatedRes.data.results;
-        console.log(upcomingRes.data.results)
-        
+        const topRate = topRatedRes.data.results;        
         this.setState({
           upcoming: upC,
           nowPlaying: nowPlay,
           topRated: topRate,
           isLoaded: true
         })
+        console.log(this.state.upcoming)
+
       }));
 
       
@@ -73,17 +74,7 @@ class App extends Component {
       <div className="App">
       <button onClick={() => this.previousMovie(upcoming)}>Prev</button>
       <button onClick={() => this.nextMovie(upcoming)}>Next</button>
-       <div className="cards-slider">
-          <div className="card-slider-wrapper" style={
-            {
-               'transform': `translateX(-${index*(100/upcoming.length) + 3}%)`
-           }
-          }>
-          {
-              upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
-           }
-          </div>
-        </div> 
+
         <div className="cards-slider toprated">
           <div className="card-slider-wrapper toprated">
           {
@@ -105,3 +96,11 @@ class App extends Component {
 }
 
 export default App;
+/*  style={
+            {
+               'transform': `translateX(-${index*(100/upcoming.length) + 3}%)`
+           }
+          }>
+          {
+              upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
+           }*/
