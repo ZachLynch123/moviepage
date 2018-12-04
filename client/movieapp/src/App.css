@@ -23,6 +23,10 @@
   color: #61dafb;
 }
 
+.item img{
+  filter: brightness(.65);
+}
+
 .card-slider {
   position: relative;
   max-width: 80%;

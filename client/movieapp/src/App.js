@@ -4,6 +4,7 @@ import axios from 'axios';
 import keys from './keys';
 import './App.css';
 import MovieImageSlider from './components/MovieImageSlider';
+import Header from './components/Header'
 
 
 class App extends Component {
@@ -14,7 +15,8 @@ class App extends Component {
     topRated: [],
     genres: [],
     isLoaded: false,
-    index: 0
+    index: 0,
+    BASE_URL: 'https://image.tmdb.org/t/p/original'
   }
 
   // Sets new index for carousel, moving it to the right by 1
@@ -62,18 +64,28 @@ class App extends Component {
           topRated: topRate,
           isLoaded: true
         })
-        console.log(this.state.upcoming)
 
       }));
 
       
   }
   render() {
-    const { index, nowPlaying, topRated, upcoming } = this.state;
+    const { index, isLoaded, nowPlaying, topRated, upcoming } = this.state;
+    if (isLoaded){
     return (
       <div className="App">
       <button onClick={() => this.previousMovie(upcoming)}>Prev</button>
       <button onClick={() => this.nextMovie(upcoming)}>Next</button>
+      <Carousel>
+        {
+          upcoming.map(movie => <Carousel.Item>
+            <img src={this.state.BASE_URL + movie.backdrop_path} alt="" />
+            <Carousel.Caption>
+              <h3>{movie.title}</h3>
+            </Carousel.Caption>
+          </Carousel.Item>)
+        }
+      </Carousel>
 
         <div className="cards-slider toprated">
           <div className="card-slider-wrapper toprated">
@@ -91,6 +103,9 @@ class App extends Component {
         </div>
       </div>
     );
+          } else {
+            return(<div>loading...</div>)
+          }
 }
 
 }
