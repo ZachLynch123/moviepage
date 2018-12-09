@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, } from 'react-bootstrap';
 import axios from 'axios';
 import keys from './keys';
 import './App.css';
@@ -74,14 +74,17 @@ class App extends Component {
     if (isLoaded){
     return (
       <div className="App">
-      <button onClick={() => this.previousMovie(topRated)}>Prev</button>
-      <button onClick={() => this.nextMovie(topRated)}>Next</button>
+     {/*  <button onClick={() => this.previousMovie(topRated)}>Prev</button>
+      <button onClick={() => this.nextMovie(topRated)}>Next</button> */}
+      
       <Carousel id="header">
         {
-          upcoming.map(movie => <Carousel.Item>
+          nowPlaying.map(movie => <Carousel.Item>
             <img src={this.state.BASE_URL + movie.backdrop_path} alt="" />
             <Carousel.Caption>
+              <h4>Latest</h4>
               <h3>{movie.title}</h3>
+              <h4>{movie.vote_average}</h4>
             </Carousel.Caption>
           </Carousel.Item>)
         }
@@ -94,13 +97,6 @@ class App extends Component {
             }
            </div>
            </div>
-        <div className="card-slider">
-            <div className="card-slider-wrapper">
-            {
-              nowPlaying.map(movie => <MovieImageSlider data={movie} key={movie.id} />)
-            }
-            </div>
-        </div>
       </div>
     );
           } else {
