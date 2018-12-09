@@ -74,9 +74,9 @@ class App extends Component {
     if (isLoaded){
     return (
       <div className="App">
-      <button onClick={() => this.previousMovie(upcoming)}>Prev</button>
-      <button onClick={() => this.nextMovie(upcoming)}>Next</button>
-      <Carousel>
+      <button onClick={() => this.previousMovie(topRated)}>Prev</button>
+      <button onClick={() => this.nextMovie(topRated)}>Next</button>
+      <Carousel id="header">
         {
           upcoming.map(movie => <Carousel.Item>
             <img src={this.state.BASE_URL + movie.backdrop_path} alt="" />
