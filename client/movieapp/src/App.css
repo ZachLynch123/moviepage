@@ -48,10 +48,10 @@
   transition: .35s;
 }
 
-#card:hover {
+/* #card:hover {
   width: 20rem;
   height: 180px;
-}
+} */
 
 .card-title {
   text-align: left;
