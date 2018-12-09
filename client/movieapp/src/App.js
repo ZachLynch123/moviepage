@@ -4,7 +4,6 @@ import axios from 'axios';
 import keys from './keys';
 import './App.css';
 import MovieImageSlider from './components/MovieImageSlider';
-import Header from './components/Header'
 
 
 class App extends Component {
@@ -77,7 +76,7 @@ class App extends Component {
      {/*  <button onClick={() => this.previousMovie(topRated)}>Prev</button>
       <button onClick={() => this.nextMovie(topRated)}>Next</button> */}
       
-      <Carousel id="header">
+      <Carousel id="header" showControles={false} showIndicators={false}>
         {
           nowPlaying.map(movie => <Carousel.Item>
             <img src={this.state.BASE_URL + movie.backdrop_path} alt="" />
