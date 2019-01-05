@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Carousel, CarouselInner, CarouselItem, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText,
-  Button } from "mdbreact";
+import { Carousel, CarouselInner, Container, Row } from "mdbreact";
 import axios from 'axios';
 import keys from './keys';
 import './App.css';
@@ -65,41 +64,31 @@ class App extends Component {
           isLoaded: true
         })
 
-      }));
-
-      
+      }));   
   }
+
   render() {
     const { index, isLoaded, nowPlaying, topRated, upcoming } = this.state;
-    let carouselItemId = 0;
-    let counter = 0;
+    let carouselItemId = 1;
+    let counter = 1;
     if (isLoaded){
     return (
       <div className="App">
-     {/*  <button onClick={() => this.previousMovie(topRated)}>Prev</button>
-      <button onClick={() => this.nextMovie(topRated)}>Next</button> */}
       
 
-      <div className="container">
-        <Carousel activeItem={1} length={3} slide={true} showControls={true} showIndicators={true} multiItem>
-        <div className="carousel-inner">
-          <div className="row">
-          {
-            topRated.map(movie => {if(counter === 3)
-              counter = 0;
-            return(
-              <CarouselItem itemId={carouselItemId}>
-              <Col md="4">
-                <MovieImageSlider data={movie} index={counter} id={carouselItemId} />{counter++}
-              </Col>
-              </CarouselItem>
-            )
-          })
-          }
-          </div>
-        </div>
+      <Container>
+        <Carousel activeItem={1} length={4} slide={true} showControls={true} showIndicators={true} multiItem>
+          <CarouselInner>
+            <Row>
+              {
+                topRated.map((movie,i) => 
+                  <MovieImageSlider data={movie} index={i} />
+                )
+              }
+            </Row>
+          </CarouselInner>
         </Carousel>
-      </div>
+      </Container>
       </div>
     );
           } else {
@@ -110,11 +99,3 @@ class App extends Component {
 }
 
 export default App;
-/*  style={
-            {
-               'transform': `translateX(-${index*(100/upcoming.length) + 3}%)`
-           }
-          }>
-          {
-              upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
-           }*/
