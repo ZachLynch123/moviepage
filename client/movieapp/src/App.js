@@ -12,6 +12,7 @@ class App extends Component {
     upcoming: [],
     nowPlaying: [],
     topRated: [],
+    topRatedOnlyOneMovie: '',
     genres: [],
     isLoaded: false,
     index: 0,
@@ -20,18 +21,10 @@ class App extends Component {
 
   // Sets new index for carousel, moving it to the right by 1
   nextMovie = (movieArray) => {
-    if (this.state.index >= 20) {
-      // use setState instead of mutating state directly
-      this.state.index = 0;
-    }
-    const newIndex = this.state.index + 1;
-    let [first, ...rest] = movieArray;
-    let movies = [...rest, first];
+    const newIndex = this.state.topRatedOnlyOneMovie.index + 1;
     this.setState({
-      index: newIndex,
-      upcoming: movies
-    });
-    console.log(this.state.index);
+      topRatedOnlyOneMovie: this.state.topRated[newIndex]
+    })
 
   }
 
@@ -46,6 +39,12 @@ class App extends Component {
     });
   }
 
+  addIndexToArray = (array) => {
+    for (let i = 0; i < array.length; i++) {
+      array[i].index = i;
+    }
+  }
+
   // React lifecycle component (initial) that fetches all the data needed on this page in 1 axious request
   componentDidMount() {
     axios.all([
@@ -56,25 +55,33 @@ class App extends Component {
       .then(axios.spread((upcomingRes, nowPlayingRes, topRatedRes) => {
         const upC = upcomingRes.data.results;
         const nowPlay = nowPlayingRes.data.results;
-        const topRate = topRatedRes.data.results;        
+        const topRate = topRatedRes.data.results;  
+        this.addIndexToArray(upC);
+        this.addIndexToArray(nowPlay);
+        this.addIndexToArray(topRate);
         this.setState({
           upcoming: upC,
           nowPlaying: nowPlay,
           topRated: topRate,
           isLoaded: true
-        })
-
+        });
+        if(this.state.isLoaded) {
+          this.setState({
+            topRatedOnlyOneMovie: this.state.topRated[0]
+          })
+        }
+               
       }));
 
       
   }
   render() {
-    const { index, isLoaded, nowPlaying, topRated, upcoming } = this.state;
+    const { index, isLoaded, nowPlaying, topRated, topRatedOnlyOneMovie, upcoming } = this.state;
     if (isLoaded){
     return (
       <div className="App">
-     {/*  <button onClick={() => this.previousMovie(topRated)}>Prev</button>
-      <button onClick={() => this.nextMovie(topRated)}>Next</button> */}
+     <button onClick={() => this.nextMovie(topRated)}>next</button>
+    
       
       <Carousel id="header" showControles={false} showIndicators={false}>
         {
@@ -90,7 +97,7 @@ class App extends Component {
       </Carousel>
 
         <div className="cards-slider toprated">
-          <div className="card-slider-wrapper toprated">
+          <div className="card-slider-wrapper toprated" style={{'transform': `translateX(+${this.state.topRatedOnlyOneMovie.index*(220/topRated.length)}%)`}}>
           {
               topRated.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
             }
