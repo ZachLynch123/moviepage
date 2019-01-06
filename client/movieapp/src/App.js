@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Carousel, } from 'react-bootstrap';
 import axios from 'axios';
 import keys from './keys';
+import Slider from 'react-slick'
 import './App.css';
 import MovieImageSlider from './components/MovieImageSlider';
 
@@ -78,6 +79,13 @@ class App extends Component {
   render() {
     const { index, isLoaded, nowPlaying, topRated, topRatedOnlyOneMovie, upcoming } = this.state;
     if (isLoaded){
+      const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 8,
+        slidesToScroll: 1
+      }
     return (
       <div className="App">
      <button onClick={() => this.nextMovie(topRated)}>next</button>
@@ -96,12 +104,13 @@ class App extends Component {
         }
       </Carousel>
 
-        <div className="cards-slider toprated">
-          <div className="card-slider-wrapper toprated" style={{'transform': `translateX(+${this.state.topRatedOnlyOneMovie.index*(220/topRated.length)}%)`}}>
+        <div className="container">
+          <Slider {...settings}>
+        
           {
               topRated.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
-            }
-           </div>
+          }
+          </Slider>
            </div>
       </div>
     );
