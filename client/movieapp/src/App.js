@@ -92,7 +92,7 @@ class App extends Component {
               slidesToShow: 3,
               slidesToScroll: 3,
               infinite: true,
-              dots: true
+              dots: false
             }
           },
           {
@@ -119,7 +119,7 @@ class App extends Component {
       
       <Carousel id="header" showControles={false} showIndicators={false}>
         {
-          nowPlaying.map(movie => <Carousel.Item>
+          nowPlaying.map((movie, index) => <Carousel.Item>
             <img src={this.state.BASE_URL + movie.backdrop_path} alt="" />
             <Carousel.Caption>
               <h4>Latest</h4>
@@ -131,17 +131,17 @@ class App extends Component {
       </Carousel>
 
         <div className="container">
+          <h2>UPCOMING</h2>
           <Slider {...settings}>
-        
           {
               upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
           }
           </Slider>
+          <h2>TOP RATED</h2>
           <Slider {...settings}>
           {
             topRated.map(movie => <MovieImageSlider data={movie} key={movie.id} />)
           }
-
           </Slider>
            </div>
       </div>
