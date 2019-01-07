@@ -116,8 +116,6 @@ class App extends Component {
     return (
       <div className="App">
      <Navbar />
-    
-      
       <Carousel id="header" showControles={false} showIndicators={false}>
         {
           nowPlaying.map((movie, index) => <Carousel.Item>
@@ -132,7 +130,7 @@ class App extends Component {
       </Carousel>
 
         <div className="container">
-          <h2>UPCOMING</h2>
+          <h2 style={{'margin-top': '20px'}}>UPCOMING</h2>
           <Slider {...settings}>
           {
               upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
