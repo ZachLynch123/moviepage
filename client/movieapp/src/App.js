@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Carousel, } from 'react-bootstrap';
 import axios from 'axios';
 import keys from './keys';
+import Navbar from './components/Navbar'
 import Slider from 'react-slick'
 import './App.css';
 import MovieImageSlider from './components/MovieImageSlider';
@@ -106,7 +107,7 @@ class App extends Component {
           {
             breakpoint: 480,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
               slidesToScroll: 1
             }
           }
@@ -114,7 +115,7 @@ class App extends Component {
       }
     return (
       <div className="App">
-     <button onClick={() => this.nextMovie(topRated)}>next</button>
+     <Navbar />
     
       
       <Carousel id="header" showControles={false} showIndicators={false}>
