@@ -83,8 +83,34 @@ class App extends Component {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 8,
-        slidesToScroll: 1
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
       }
     return (
       <div className="App">
@@ -108,8 +134,14 @@ class App extends Component {
           <Slider {...settings}>
         
           {
-              topRated.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
+              upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
           }
+          </Slider>
+          <Slider {...settings}>
+          {
+            topRated.map(movie => <MovieImageSlider data={movie} key={movie.id} />)
+          }
+
           </Slider>
            </div>
       </div>
@@ -122,11 +154,3 @@ class App extends Component {
 }
 
 export default App;
-/*  style={
-            {
-               'transform': `translateX(-${index*(100/upcoming.length) + 3}%)`
-           }
-          }>
-          {
-              upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
-           }*/
