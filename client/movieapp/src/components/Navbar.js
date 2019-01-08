@@ -1,8 +1,10 @@
 import React from 'react';
+import mainLogo from '../img/marker.png'
 
 const Navbar = () => {
     return (
         <nav className="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+        <a className="navbar-brand" href="#"><img className="logo" src={mainLogo}></img></a>
     <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
