@@ -1,4 +1,6 @@
 import React from 'react';
+import mdbImage from '../img/attribution.svg';
+import mdbFallback from '../img/attribution-fallback.png'
 
 const Footer = () => {
     return (
@@ -20,7 +22,7 @@ const Footer = () => {
             </div>
         </section>
         <section className="main-footer-bottom">
-        
+            <img src={mdbImage} alt={mdbFallback}></img>
         </section>
     </footer>
     );

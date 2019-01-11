@@ -5,6 +5,7 @@ import keys from './keys';
 import Navbar from './components/Navbar'
 import Slider from 'react-slick'
 import './App.css';
+import Footer from './components/Footer'
 import MovieImageSlider from './components/MovieImageSlider';
 
 
@@ -143,6 +144,7 @@ class App extends Component {
           }
           </Slider>
            </div>
+
       </div>
     );
           } else {
