@@ -144,7 +144,7 @@ class App extends Component {
           }
           </Slider>
            </div>
-
+          <Footer />
       </div>
     );
           } else {

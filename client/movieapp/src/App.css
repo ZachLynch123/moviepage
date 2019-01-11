@@ -88,3 +88,27 @@ h2 {
   height: 200px;
 }
 
+.main-footer {
+  background-color: #131517;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 4rem;
+  padding: 7rem;
+}
+
+.main-footer-top-header {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.main-footer-top-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  text-align: left;
+}
+
+.main-footer-top-rights {
+  text-align: left;
+}
