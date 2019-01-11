@@ -20,7 +20,7 @@
 
 #header {
   width: 100vw;
-  height: 100%;
+  height: 100vh;
 }
 
 #header .carousel-indicators {
@@ -33,6 +33,10 @@
 
 #header .carousel-caption {
   text-align: left;
+}
+
+.carousel-inner>.item>img {
+  height: 100vh;
 }
 
 .card-slider {
@@ -107,8 +111,17 @@ h2 {
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   text-align: left;
+  padding-bottom: 40px;
 }
 
 .main-footer-top-rights {
   text-align: left;
+}
+
+.main-footer-bottom {
+  text-align: right;
+}
+
+.main-footer-bottom-img {
+  width: 250px;
 }

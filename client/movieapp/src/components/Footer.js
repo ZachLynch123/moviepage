@@ -22,7 +22,7 @@ const Footer = () => {
             </div>
         </section>
         <section className="main-footer-bottom">
-            <img src={mdbImage} alt={mdbFallback}></img>
+            <img src={mdbImage} alt={mdbFallback} className="main-footer-bottom-img"></img>
         </section>
     </footer>
     );
