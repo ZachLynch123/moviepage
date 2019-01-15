@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Carousel, } from 'react-bootstrap';
+import { BrowserRouter, Route } from 'react-router-dom'
 import axios from 'axios';
 import keys from './keys';
 import Navbar from './components/Navbar'
@@ -7,6 +8,7 @@ import Slider from 'react-slick'
 import './App.css';
 import Footer from './components/Footer'
 import MovieImageSlider from './components/MovieImageSlider';
+import Details from './components/Details';
 
 
 class App extends Component {
@@ -117,18 +119,21 @@ class App extends Component {
     return (
       <div className="App">
      <Navbar />
-      <Carousel id="header" showControles={false} showIndicators={false}>
-        {
-          nowPlaying.map((movie, index) => <Carousel.Item>
-            <img src={this.state.BASE_URL + movie.backdrop_path} alt="" />
-            <Carousel.Caption>
-              <h4>Latest</h4>
-              <h3>{movie.title}</h3>
-              <h4>{movie.vote_average}</h4>
-            </Carousel.Caption>
-          </Carousel.Item>)
-        }
-      </Carousel>
+     <BrowserRouter>
+        <Carousel id="header" showControles={false} showIndicators={false}>
+          {
+            nowPlaying.map((movie, index) => <Carousel.Item>
+              <a href={`/details/${movie.id}`}><img src={this.state.BASE_URL + movie.backdrop_path} alt="" /></a>
+              <Route path={`/details/${movie.id}`} component={Details}/>
+              <Carousel.Caption>
+                <h4>Latest</h4>
+                <h3>{movie.title}</h3>
+                <h4>{movie.vote_average}</h4>
+              </Carousel.Caption>
+            </Carousel.Item>)
+          }
+        </Carousel>
+      </BrowserRouter>
 
         <div className="container">
           <h2 style={{'margin-top': '20px'}}>UPCOMING</h2>
