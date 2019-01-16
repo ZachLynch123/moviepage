@@ -26,30 +26,7 @@ class App extends Component {
   }
 
   // Sets new index for carousel, moving it to the right by 1
-  nextMovie = (movieArray) => {
-    const newIndex = this.state.topRatedOnlyOneMovie.index + 1;
-    this.setState({
-      topRatedOnlyOneMovie: this.state.topRated[newIndex]
-    })
 
-  }
-
-  previousMovie = (movieArray) => {
-    const newIndex = this.state.index - 1;
-    let last = movieArray.slice(-1);
-    let rest = movieArray.slice(0,-1);
-    let movies = [last, ...rest];
-    this.setState({
-      index: newIndex,
-      movieArray: movies
-    });
-  }
-
-  addIndexToArray = (array) => {
-    for (let i = 0; i < array.length; i++) {
-      array[i].index = i;
-    }
-  }
 
   // React lifecycle component (initial) that fetches all the data needed on this page in 1 axious request
   componentDidMount() {
@@ -62,9 +39,6 @@ class App extends Component {
         const upC = upcomingRes.data.results;
         const nowPlay = nowPlayingRes.data.results;
         const topRate = topRatedRes.data.results;  
-        this.addIndexToArray(upC);
-        this.addIndexToArray(nowPlay);
-        this.addIndexToArray(topRate);
         this.setState({
           upcoming: upC,
           nowPlaying: nowPlay,
@@ -122,7 +96,7 @@ class App extends Component {
       <div className="App">
      <Navbar />
       <Header data={nowPlaying} />
-        
+      <Route path="" />
       
 
         <div className="container">

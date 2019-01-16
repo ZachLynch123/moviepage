@@ -8,7 +8,7 @@ class Header extends React.Component {
           <Carousel id="header" showControles={false} showIndicators={false}>
           {
             this.props.data.map((movie, index) => <Carousel.Item>
-              <img src={BASE_URL + movie.backdrop_path} alt="" />
+              <a href={`/details/movie/${movie.id}`}><img src={BASE_URL + movie.backdrop_path} alt="" /></a>
               <Carousel.Caption>
                 <h4>Latest</h4>
                 <h3>{movie.title}</h3>
