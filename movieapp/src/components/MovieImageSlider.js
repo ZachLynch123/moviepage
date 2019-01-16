@@ -4,7 +4,6 @@ import './styles.css';
 
 const MovieImageSlider = (props) => {
     const BASE_URL = "https://image.tmdb.org/t/p/w780";
-    console.log(props.data)
     const { backdrop_path, id, poster_path, title, voter_average} = props.data;
     let picture = '';
     if (backdrop_path == null) {

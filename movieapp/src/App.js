@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Carousel, } from 'react-bootstrap';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 import axios from 'axios';
 import keys from './keys';
 import Navbar from './components/Navbar'
@@ -9,6 +9,7 @@ import './App.css';
 import Footer from './components/Footer'
 import MovieImageSlider from './components/MovieImageSlider';
 import Details from './components/Details';
+import Header from './components/Header'
 
 
 class App extends Component {
@@ -117,23 +118,12 @@ class App extends Component {
         ]
       }
     return (
+      <BrowserRouter>
       <div className="App">
      <Navbar />
-     <BrowserRouter>
-        <Carousel id="header" showControles={false} showIndicators={false}>
-          {
-            nowPlaying.map((movie, index) => <Carousel.Item>
-              <a href={`/details/${movie.id}`}><img src={this.state.BASE_URL + movie.backdrop_path} alt="" /></a>
-              <Route path={`/details/${movie.id}`} component={Details}/>
-              <Carousel.Caption>
-                <h4>Latest</h4>
-                <h3>{movie.title}</h3>
-                <h4>{movie.vote_average}</h4>
-              </Carousel.Caption>
-            </Carousel.Item>)
-          }
-        </Carousel>
-      </BrowserRouter>
+      <Header data={nowPlaying} />
+        
+      
 
         <div className="container">
           <h2 style={{'margin-top': '20px'}}>UPCOMING</h2>
@@ -151,6 +141,7 @@ class App extends Component {
            </div>
           <Footer />
       </div>
+      </BrowserRouter>
     );
           } else {
             return(<div>loading...</div>)
@@ -158,5 +149,6 @@ class App extends Component {
 }
 
 }
+
 
 export default App;
