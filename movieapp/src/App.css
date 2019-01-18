@@ -23,6 +23,11 @@
   height: 100vh;
 }
 
+.carousel-inner>.item>img {
+  width: 100vw;
+  height: 100vh;
+}
+
 #header .carousel-indicators {
   visibility: hidden;
 }
