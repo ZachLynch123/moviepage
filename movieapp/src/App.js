@@ -18,15 +18,18 @@ class App extends Component {
     upcoming: [],
     nowPlaying: [],
     topRated: [],
-    topRatedOnlyOneMovie: '',
+    movieId: 0,
     genres: [],
     isLoaded: false,
     index: 0,
     BASE_URL: 'https://image.tmdb.org/t/p/original'
   }
 
-  // Sets new index for carousel, moving it to the right by 1
-
+  setMovieId = id => {
+    this.setState({
+      movieId: id
+    })
+  }
 
   // React lifecycle component (initial) that fetches all the data needed on this page in 1 axious request
   componentDidMount() {
@@ -53,6 +56,7 @@ class App extends Component {
                
       }));
 
+ 
       
   }
   render() {
@@ -92,18 +96,18 @@ class App extends Component {
         ]
       }
     return (
-      <BrowserRouter>
       <div className="App">
      <Navbar />
-      <Header data={nowPlaying} />
-      <Route path="" />
-      
+     <Route path='/home'/>
+      <Header data={nowPlaying} setMovieid={this.setMovieId} />      
 
         <div className="container">
           <h2 style={{'margin-top': '20px'}}>UPCOMING</h2>
           <Slider {...settings}>
           {
-              upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>)
+              upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>
+              
+                )
           }
           </Slider>
           <h2>TOP RATED</h2>
@@ -115,7 +119,7 @@ class App extends Component {
            </div>
           <Footer />
       </div>
-      </BrowserRouter>
+
     );
           } else {
             return(<div>loading...</div>)
