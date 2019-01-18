@@ -9,9 +9,7 @@ const Navbar = () => {
             <li className="nav-item active">
                 <a className="nav-link" href="/home">Left</a>
             </li>
-            <li className="nav-item">
-                <a className="nav-link" href="//codeply.com">Codeply</a>
-            </li>
+            
             <li className="nav-item">
                 <a className="nav-link" href="#">Link</a>
             </li>
@@ -24,7 +22,7 @@ const Navbar = () => {
         </ul>
     </div>
     <div className="mx-auto order-0">
-        <a className="navbar-brand mx-auto" href="#">Navbar 2</a>
+        <a className="navbar-brand mx-auto" href="#">Zach's Movie Page</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
             <span className="navbar-toggler-icon"></span>
         </button>
