@@ -98,7 +98,6 @@ class App extends Component {
     return (
       <div className="App">
      <Navbar />
-     <Route path='/home'/>
       <Header data={nowPlaying} setMovieid={this.setMovieId} />      
 
         <div className="container">
