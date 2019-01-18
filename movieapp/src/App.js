@@ -97,7 +97,6 @@ class App extends Component {
       }
     return (
       <div className="App">
-     <Navbar />
       <Header data={nowPlaying} setMovieid={this.setMovieId} />      
 
         <div className="container">
