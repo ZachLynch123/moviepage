@@ -4,6 +4,7 @@ class Details extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            backdropUrl: 'https://image.tmdb.org/t/p/original',
             id: this.props.location.pathname.slice(-6),
             backdrop: '',
             poster: '',
@@ -20,9 +21,15 @@ async getDetails() {
         const data = await fetch(`
         https://api.themoviedb.org/3/movie/${this.state.id}?api_key=f8be595d434ed3dc41d8c73f0760f653&language=en-US`);
         const jsonData = await data.json();
-        console.log(jsonData);
-        
-
+        this.setState({
+            backdrop: jsonData.backdrop_path,
+            poster: jsonData.poster_path,
+            title: jsonData.original_title,
+            genres: jsonData.genres,
+            overview: jsonData.overview,
+            voteAverage: jsonData.vote_average,
+            isLoaded: true
+        });
     } catch(e) {
         console.log(e);
         
@@ -34,9 +41,11 @@ componentDidMount() {
 }
 
     render() {
+        
+        
         return(
             <div>
-            <h1 className="red">hello world!</h1>
+            <img src={this.state.backdropUrl + this.state.backdrop} alt="hi"></img>
             </div>
         )
     }

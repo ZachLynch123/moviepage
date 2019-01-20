@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './styles.css';
 
 
@@ -13,7 +14,7 @@ const MovieImageSlider = (props) => {
     }
     return (
         <div className="card" id="card">
-            <img className="card-img-top" src={BASE_URL + picture} alt="#" />
+            <Link to={`/details/${id}`}><img className="card-img-top" src={BASE_URL + picture} alt="#" /></Link>
             <div className="card-title">
                 {title}
             </div>
