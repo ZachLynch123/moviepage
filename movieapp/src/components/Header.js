@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Carousel } from 'react-bootstrap';
 
 class Header extends React.Component {
@@ -10,7 +11,7 @@ class Header extends React.Component {
           <Carousel id="header" showControles={false} showIndicators={false}>
           {
             this.props.data.map((movie, index) => <Carousel.Item>
-              <img src={BASE_URL + movie.backdrop_path} alt="" />
+              <Link to={`/details/${movie.id}`}><img src={BASE_URL + movie.backdrop_path} alt="" /></Link>
               <Carousel.Caption>
                 <h4>Latest</h4>
                 <h3>{movie.title}</h3>

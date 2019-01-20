@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
 import axios from 'axios';
 import keys from '../keys';
 import Slider from 'react-slick'
 import Footer from './Footer'
 import MovieImageSlider from './MovieImageSlider';
-import Details from './Details';
 import Header from './Header'
 
 class Home extends Component {
@@ -16,7 +14,6 @@ state = {
     movieId: 0,
     genres: [],
     isLoaded: false,
-    index: 0,
     BASE_URL: 'https://image.tmdb.org/t/p/original'
   }
 
@@ -43,11 +40,7 @@ state = {
           topRated: topRate,
           isLoaded: true
         });
-        if(this.state.isLoaded) {
-          this.setState({
-            topRatedOnlyOneMovie: this.state.topRated[0]
-          })
-        }
+        
                
       }));
 
@@ -55,7 +48,7 @@ state = {
       
   }
   render() {
-    const { index, isLoaded, nowPlaying, topRated, topRatedOnlyOneMovie, upcoming } = this.state;
+    const { isLoaded, nowPlaying, topRated, upcoming } = this.state;
     if (isLoaded){
       const settings = {
         dots: false,

@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
-import axios from 'axios';
-import keys from './keys';
-import Slider from 'react-slick'
+import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css';
-import Footer from './components/Footer'
-import MovieImageSlider from './components/MovieImageSlider';
-import Details from './components/Details';
-import Header from './components/Header'
 import Home from './components/Home'
+import Details from './components/Details'
 
 
 class App extends Component {
   render() {
     return(
-      <Home />
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route path="/:id" component={Details} />
+        </div>
+      </BrowserRouter>
     )
   }
   
 }
+
+
 
 
 export default App;
