@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css'
 
 class Details extends React.Component {
     constructor(props) {
@@ -41,11 +42,14 @@ componentDidMount() {
 }
 
     render() {
-        
-        
+        const headerStyle = {
+            background: `linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%) center center no-repeat, url(https://image.tmdb.org/t/p/original${this.state.backdrop}) center top no-repeat rgb(255, 255, 255)`
+        }
         return(
-            <div>
-            <img src={this.state.backdropUrl + this.state.backdrop} alt="hi"></img>
+            <div className="item-details">
+            <div className="item-details-header" style={headerStyle}>
+
+            </div>
             </div>
         )
     }
