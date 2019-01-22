@@ -8,9 +8,9 @@ import Details from './components/Details'
 class App extends Component {
   render() {
     return(
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div>
-          <Route path="https://zachlynch123.github.io/moviepage/" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route path="/:id" component={Details} />
         </div>
       </BrowserRouter>
