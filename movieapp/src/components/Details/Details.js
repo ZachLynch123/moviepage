@@ -41,6 +41,7 @@ class Details extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0,0);
         this.getDetails();
     }
 
@@ -76,13 +77,13 @@ class Details extends React.Component {
                         <p>{this.state.overview}</p>
                     </div>
                     <div className="item-details-main-cast">
-                        <h1>Add get request for cast</h1>
+                        <h1>Add get request for cast {/* /movie/{movie_id}/credits */}</h1>
                     </div>
                     <div className="item-details-main-trailers">
-                        <h1>Add get request for trailers</h1>
+                        <h1>Add get request for trailers {/* /movie/{movie_id}/videos */}</h1>
                     </div>
                     <div className="item-details-main-reviews">
-                        <h1>Add get request for reviews</h1>
+                        <h1>Add get request for reviews {/* /movie/{movie_id}/reviews */}</h1>
                     </div>
                 </div>
             </div>
