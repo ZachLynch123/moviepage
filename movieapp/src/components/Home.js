@@ -5,6 +5,7 @@ import Slider from 'react-slick'
 import Footer from './Footer'
 import MovieImageSlider from './MovieImageSlider';
 import Header from './Header'
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
 state = {
@@ -88,7 +89,8 @@ state = {
       <Header data={nowPlaying} setMovieid={this.setMovieId} />      
 
         <div className="container">
-          <h2 style={{'margin-top': '20px'}}>UPCOMING</h2>
+          <h2 style={{'marginTop': '20px'}}>UPCOMING</h2>
+          <Link to="/login">Login</Link>
           <Slider {...settings}>
           {
               upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>

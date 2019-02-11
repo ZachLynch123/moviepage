@@ -19,6 +19,8 @@ class Details extends React.Component {
 
 async getDetails() {
     try {
+        console.log(this.props.match.params);
+        
         const data = await fetch(`
         https://api.themoviedb.org/3/movie/${this.state.id}?api_key=f8be595d434ed3dc41d8c73f0760f653&language=en-US`);
         const jsonData = await data.json();

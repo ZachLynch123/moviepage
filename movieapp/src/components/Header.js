@@ -4,13 +4,11 @@ import { Carousel } from 'react-bootstrap';
 
 class Header extends React.Component {
     render() {
-        const BASE_URL = "https://image.tmdb.org/t/p/original";
-        console.log(this.props.setMovieid);
-        
+        const BASE_URL = "https://image.tmdb.org/t/p/original";        
         return(
-          <Carousel id="header" showControles={false} showIndicators={false}>
+          <Carousel id="header">
           {
-            this.props.data.map((movie, index) => <Carousel.Item>
+            this.props.data.map((movie, key) => <Carousel.Item>
               <Link to={`/details/${movie.id}`}><img src={BASE_URL + movie.backdrop_path} alt="" /></Link>
               <Carousel.Caption>
                 <h4>Latest</h4>
