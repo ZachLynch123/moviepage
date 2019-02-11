@@ -69,6 +69,22 @@ class Details extends React.Component {
                         </div>
                     </div>
                 </div>
+
+                <div className="item-details-main">
+                    <div className="item-details-main-summary">
+                        <h3>Summary</h3>
+                        <p>{this.state.overview}</p>
+                    </div>
+                    <div className="item-details-main-cast">
+                        <h1>Add get request for cast</h1>
+                    </div>
+                    <div className="item-details-main-trailers">
+                        <h1>Add get request for trailers</h1>
+                    </div>
+                    <div className="item-details-main-reviews">
+                        <h1>Add get request for reviews</h1>
+                    </div>
+                </div>
             </div>
         )
     }
