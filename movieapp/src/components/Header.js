@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Carousel } from 'react-bootstrap';
 
 class Header extends React.Component {
-    render() {
+    render() {      
         const BASE_URL = "https://image.tmdb.org/t/p/original";        
         return(
           <Carousel id="header">

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css';
 import Home from './components/Home'
-import Details from './components/Details'
+import Details from './components/Details/Details'
 import Login from './components/login';
+import Guest from './components/Guest';
 
 
 class App extends Component {
@@ -15,7 +16,8 @@ class App extends Component {
         <div>
           <Route exact path="/" component={Home} />
           <Route path="/details" component={Details} />
-          <Route path = "/login" component={Login}/>
+          <Route path = "/login" component={Login} />
+          <Route path="/profile/guest" component={Guest} />
         </div>
       </BrowserRouter>
     )
