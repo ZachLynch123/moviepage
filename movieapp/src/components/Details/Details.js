@@ -106,7 +106,7 @@ class Details extends React.Component {
           const { castList, reviewList, trailerList } = this.state
 
           /* 
-            for loop to delete every video that isn't a trailer from trailer list && for loop to delete ever cast member that doesn't have a profile picture. Or even just ignore all that don't follow those criteria in the map function? But map function must return something. no? will test later
+            for loop to delete every video that isn't a trailer from trailer list && for loop to delete ever cast member that doesn't have a profile picture. Or even just ignore all that don't follow those criteria in the map function? But arrow function in map function must return something if an if statement is added. . no? will test later Also maybe add a specific set of rules for trailers list in slider settings to accomidate the large size
           */
 
         return(
