@@ -1,12 +1,18 @@
 import React from 'react';
+import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 
 const Cast = (props) => {
-    console.log(props);
+    console.log(props.data);
     
     const BASE_URL = "https://image.tmdb.org/t/p/w154";
 
+    for(var i = 0; i < props.data.length-1; i++) {
+        if (props.data[i].profile_path === null) {
+            
+        }
+    }
+
     const { character, name, profile_path } = props.data;
-    console.log(props.data);
     
     return(
         <div className="card" id="card">

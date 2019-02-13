@@ -104,6 +104,11 @@ class Details extends React.Component {
             background: `linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%) center center no-repeat, url(https://image.tmdb.org/t/p/original${this.state.backdrop}) center top no-repeat rgb(255, 255, 255)`
         }
           const { castList, reviewList, trailerList } = this.state
+
+          /* 
+            for loop to delete every video that isn't a trailer from trailer list && for loop to delete ever cast member that doesn't have a profile picture. Or even just ignore all that don't follow those criteria in the map function? But map function must return something. no? will test later
+          */
+
         return(
             <div className="item-details">
                 <div className="item-details-header" style={headerStyle}>
