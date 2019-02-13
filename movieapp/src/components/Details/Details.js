@@ -1,4 +1,6 @@
 import React from 'react';
+import Slider from 'react-slick';
+import Cast from '../Cast';
 import './styles.css'
 
 class Details extends React.Component {
@@ -14,14 +16,15 @@ class Details extends React.Component {
             genres: [],
             overview: '',
             voteAverage: 0,
+            castList: [],
             isLoaded: false
         }
 }
 
-    async getDetails() {
+    async getMovieDetails() {
         try {        
             const data = await fetch(`
-            https://api.themoviedb.org/3/movie/${this.state.id}?api_key=f8be595d434ed3dc41d8c73f0760f653&language=en-US`);
+            https://api.themoviedb.org/3/movie/${this.state.id}?api_key=f8be595d434ed3dc41d8c73f0760f653&language=en-US`, );
             const jsonData = await data.json();
             this.setState({
                 backdrop: jsonData.backdrop_path,
@@ -31,18 +34,28 @@ class Details extends React.Component {
                 overview: jsonData.overview,
                 voteAverage: jsonData.vote_average,
                 isLoaded: true
-            });
-            console.log(this.state);
-            
+            });            
         } catch(e) {
             console.log(e);
-            
+        }
+    }
+
+    async getCast() {
+        try {
+            const data = await fetch(`https://api.themoviedb.org/3/movie/${this.state.id}/credits?api_key=f8be595d434ed3dc41d8c73f0760f653`);
+            const jsonData = await data.json();
+            this.setState({
+                castList: jsonData.cast
+            })
+        } catch(e) {
+            console.log(e);
         }
     }
 
     componentDidMount() {
         window.scrollTo(0,0);
-        this.getDetails();
+        this.getMovieDetails();
+        this.getCast();
     }
 
     getGenres = genreArray => {
@@ -58,6 +71,40 @@ class Details extends React.Component {
         const headerStyle = {
             background: `linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%) center center no-repeat, url(https://image.tmdb.org/t/p/original${this.state.backdrop}) center top no-repeat rgb(255, 255, 255)`
         }
+        const settings = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  infinite: true,
+                  dots: false
+                }
+              },
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  initialSlide: 2
+                }
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1
+                }
+              }
+            ]
+          }
+          const { castList } = this.state
         return(
             <div className="item-details">
                 <div className="item-details-header" style={headerStyle}>
@@ -77,7 +124,13 @@ class Details extends React.Component {
                         <p>{this.state.overview}</p>
                     </div>
                     <div className="item-details-main-cast">
-                        <h1>Add get request for cast {/* /movie/{movie_id}/credits */}</h1>
+                        <Slider {...settings}>
+                            {
+                                castList.map(castMember => 
+                                    <Cast data={castMember} />
+                                )
+                            }
+                        </Slider>
                     </div>
                     <div className="item-details-main-trailers">
                         <h1>Add get request for trailers {/* /movie/{movie_id}/videos */}</h1>
