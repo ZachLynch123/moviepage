@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import Cast from '../Cast';
+import Trailers from '../Trailers';
 import settings from '../../sliderSettings';
 import './styles.css'
 
@@ -131,7 +132,12 @@ class Details extends React.Component {
                         </Slider>
                     </div>
                     <div className="item-details-main-trailers">
-                        <h1>Add get request for trailers {/* /movie/{movie_id}/videos */}</h1>
+                        <Slider {...settings}>
+                            {
+                                trailerList.map(trailer => 
+                                    <Trailers data={trailer} />)
+                            }
+                        </Slider>
                     </div>
                     <div className="item-details-main-reviews">
                         <h1>Add get request for reviews {/* /movie/{movie_id}/reviews */}</h1>
