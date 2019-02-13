@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import keys from '../keys';
+import settings from '../sliderSettings';
 import Slider from 'react-slick'
 import Footer from './Footer'
 import MovieImageSlider from './MovieImageSlider';
@@ -51,39 +52,7 @@ state = {
   render() {
     const { isLoaded, nowPlaying, topRated, upcoming } = this.state;
     if (isLoaded){
-      const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-              initialSlide: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      }
+      
     return (
       <div className="App">
       <Header data={nowPlaying} setMovieid={this.setMovieId} />      
