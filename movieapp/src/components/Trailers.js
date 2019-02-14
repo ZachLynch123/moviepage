@@ -6,7 +6,7 @@ const Trailers = (props) => {
     const { key } = props.data;
     return(
         
-        <iframe title="1" width="177" height="170" src={BASE_URL+key}></iframe>
+        <iframe title="1" width="420" height="190" src={BASE_URL+key}></iframe>
     );
 }
 

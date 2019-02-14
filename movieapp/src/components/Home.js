@@ -60,7 +60,7 @@ state = {
         <div className="container">
           <h2 style={{'marginTop': '20px'}}>UPCOMING</h2>
           <Link to="/login">Login</Link>
-          <Slider {...settings}>
+          <Slider {...settings.defaultSetting}>
           {
               upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>
               
@@ -68,7 +68,7 @@ state = {
           }
           </Slider>
           <h2>TOP RATED</h2>
-          <Slider {...settings}>
+          <Slider {...settings.defaultSetting}>
           {
             topRated.map(movie => <MovieImageSlider data={movie} key={movie.id} />)
           }

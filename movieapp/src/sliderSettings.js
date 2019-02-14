@@ -1,4 +1,5 @@
 module.exports = {
+  defaultSetting: {
     dots: false,
     infinite: true,
     speed: 500,
@@ -30,4 +31,13 @@ module.exports = {
         }
       }
     ]
+  },
+  trailerSettings: {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
   }
+
+}

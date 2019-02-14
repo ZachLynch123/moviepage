@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import Cast from '../Cast';
 import Trailers from '../Trailers';
-import settings from '../../sliderSettings';
+import {defaultSetting as settings, trailerSettings} from '../../sliderSettings';
 import './styles.css'
 
 class Details extends React.Component {
@@ -48,8 +48,17 @@ class Details extends React.Component {
         try {
             const data = await fetch(`https://api.themoviedb.org/3/movie/${this.state.id}/credits?api_key=f8be595d434ed3dc41d8c73f0760f653`);
             const jsonData = await data.json();
+            console.log(jsonData);
+            
+            let noNullCast = [];
+
+            for (var i = 0; i < jsonData.cast.length; i++ ){
+                if (jsonData.cast[i].profile_path !== null) {
+                    noNullCast.push(jsonData.cast[i]);
+                }
+            }
             this.setState({
-                castList: jsonData.cast
+                castList: noNullCast
             })
         } catch(e) {
             console.log(e);
@@ -61,6 +70,7 @@ class Details extends React.Component {
             const data = await fetch(`https://api.themoviedb.org/3/movie/${this.state.id}/videos?api_key=f8be595d434ed3dc41d8c73f0760f653&language=en-US
             `);
             const jsonData = await data.json();
+            
             this.setState({
                 trailerList: jsonData.results
             });
@@ -103,7 +113,7 @@ class Details extends React.Component {
         const headerStyle = {
             background: `linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%) center center no-repeat, url(https://image.tmdb.org/t/p/original${this.state.backdrop}) center top no-repeat rgb(255, 255, 255)`
         }
-          const { castList, reviewList, trailerList } = this.state
+          const { castList, reviewList, trailerList } = this.state          
 
           /* 
             for loop to delete every video that isn't a trailer from trailer list && for loop to delete ever cast member that doesn't have a profile picture. Or even just ignore all that don't follow those criteria in the map function? But arrow function in map function must return something if an if statement is added. . no? will test later Also maybe add a specific set of rules for trailers list in slider settings to accomidate the large size
@@ -137,7 +147,7 @@ class Details extends React.Component {
                         </Slider>
                     </div>
                     <div className="item-details-main-trailers">
-                        <Slider {...settings}>
+                        <Slider {...trailerSettings}>
                             {
                                 trailerList.map(trailer => 
                                     <Trailers data={trailer} />)
