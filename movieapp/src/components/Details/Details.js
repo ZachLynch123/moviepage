@@ -11,7 +11,7 @@ class Details extends React.Component {
         this.state = {
             posterUrl: "https://image.tmdb.org/t/p/w154",
             backdropUrl: 'https://image.tmdb.org/t/p/original',
-            id: this.props.location.pathname.slice(-6),
+            id: this.props.location.pathname.split("/").pop(),
             backdrop: '',
             poster: '',
             title: '',
@@ -23,6 +23,8 @@ class Details extends React.Component {
             reviewList: [],
             isLoaded: false
         }
+        console.log();
+        
 }
 
     async getMovieDetails() {
@@ -47,14 +49,12 @@ class Details extends React.Component {
     async getCast() {
         try {
             const data = await fetch(`https://api.themoviedb.org/3/movie/${this.state.id}/credits?api_key=f8be595d434ed3dc41d8c73f0760f653`);
-            const jsonData = await data.json();
-            console.log(jsonData);
-            
+            const jsonData = await data.json();            
             let noNullCast = [];
 
             for (var i = 0; i < jsonData.cast.length; i++ ){
                 if (jsonData.cast[i].profile_path !== null) {
-                    noNullCast.push(jsonData.cast[i]);
+                   noNullCast.push(jsonData.cast[i]);
                 }
             }
             this.setState({
@@ -69,10 +69,16 @@ class Details extends React.Component {
         try {
             const data = await fetch(`https://api.themoviedb.org/3/movie/${this.state.id}/videos?api_key=f8be595d434ed3dc41d8c73f0760f653&language=en-US
             `);
-            const jsonData = await data.json();
+            const jsonData = await data.json();            
+            let onlyTrailers = [];
+            for (var i = 0; i < jsonData.results.length; i++) {
+                if(jsonData.results[i].type ==="Trailer") {                    
+                    onlyTrailers.push(jsonData.results[i]);
+                }
+            }
             
             this.setState({
-                trailerList: jsonData.results
+                trailerList: onlyTrailers
             });
         } catch(e) {
             console.log(e);

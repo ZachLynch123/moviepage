@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Cast = (props) => {
-    console.log(props.data);
     
     const BASE_URL = "https://image.tmdb.org/t/p/w154";
 
