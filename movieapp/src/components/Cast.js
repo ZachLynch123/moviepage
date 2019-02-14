@@ -8,7 +8,7 @@ const Cast = (props) => {
     
     return(
         <div className="card" id="card">
-            <img className="card-img-top" src={BASE_URL + profile_path} alt={name}></img>
+            <img className="card-img-top" style={{width: "110px"}} src={BASE_URL + profile_path} alt={name}></img>
             <div className="card-title">
                 {name}
             </div>
