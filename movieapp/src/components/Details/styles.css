@@ -10,6 +10,19 @@
     padding-left: 10%
 }
 
+.items-details-info-container-content-title {
+    color: rgba(255, 255, 255, .8);
+}
+
+.items-details-info-container-content-rating {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, .8);
+}
+
+.items-details-info-container-content-genre {
+    color: rgba(255, 255, 255, .5)
+}
+
 .item-details-main {
     margin: 0 auto;
     max-width: 70%;

@@ -132,7 +132,7 @@ class Details extends React.Component {
                         <div className="item-details-info-container-content">
                             <h1 className="items-details-info-container-content-title">{this.state.title}</h1>
                             <p className="items-details-info-container-content-rating">{this.state.voteAverage}</p>
-                            {this.getGenres(this.state.genres)}
+                            <p className="items-details-info-container-content-genre">{this.getGenres(this.state.genres)}</p>
                         </div>
                     </div>
                 </div>
@@ -154,8 +154,9 @@ class Details extends React.Component {
                     <div className="item-details-main-trailers">
                         <Slider {...trailerSettings}>
                             {
-                                trailerList.map(trailer => 
-                                    <Trailers data={trailer} />)
+                                trailerList.map((trailer, key) => 
+                                <Trailers data={trailer} /> 
+                                )
                             }
                         </Slider>
                     </div>
