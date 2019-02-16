@@ -139,8 +139,8 @@ class Details extends React.Component {
 
                 <div className="item-details-main">
                     <div className="item-details-main-summary">
-                        <h3>Summary</h3>
-                        <p>{this.state.overview}</p>
+                        <h1 className="item-details-main-title">Summary</h1>
+                        <p className="item-details-main-overview">{this.state.overview}</p>
                     </div>
                     <div className="item-details-main-cast">
                         <Slider {...settings}>
