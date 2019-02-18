@@ -143,6 +143,7 @@ class Details extends React.Component {
                         <p className="item-details-main-overview">{this.state.overview}</p>
                     </div>
                     <div className="item-details-main-cast">
+                        <h1 className="item-details-main-title">Cast</h1>
                         <Slider {...settings}>
                             {
                                 castList.map(castMember => 
@@ -152,6 +153,7 @@ class Details extends React.Component {
                         </Slider>
                     </div>
                     <div className="item-details-main-trailers">
+                        <h1 className="item-details-main-title">Trailers</h1>
                         <Slider {...trailerSettings}>
                             {
                                 trailerList.map((trailer, key) => 
@@ -161,6 +163,7 @@ class Details extends React.Component {
                         </Slider>
                     </div>
                     <div className="item-details-main-reviews">
+                        <h1 className="item-details-main-title">Reviews</h1>
                         <Reviews data={reviewList} />
                     </div>
                 </div>
