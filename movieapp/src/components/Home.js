@@ -59,7 +59,6 @@ state = {
 
         <div className="container">
           <h2 style={{'marginTop': '20px'}}>UPCOMING</h2>
-          <Link to="/login">Login</Link>
           <Slider {...settings.defaultSetting}>
           {
               upcoming.map(movie => <MovieImageSlider data={movie} key={movie.id}/>
