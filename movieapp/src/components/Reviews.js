@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Review = (props) => {
-    console.log(props);
     
 
     if (props.data.length === 0) {

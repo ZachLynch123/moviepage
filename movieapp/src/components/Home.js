@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import keys from '../keys';
 import settings from '../sliderSettings';
+import NavBar from './Navbar';
 import Slider from 'react-slick'
 import Footer from './Footer'
 import MovieImageSlider from './MovieImageSlider';
@@ -55,6 +56,7 @@ state = {
       
     return (
       <div className="App">
+      <NavBar />
       <Header data={nowPlaying} setMovieid={this.setMovieId} />      
 
         <div className="container">

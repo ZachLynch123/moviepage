@@ -1,5 +1,4 @@
 import React from 'react';
-import mainLogo from '../img/marker.png'
 
 const Navbar = () => {
     return (

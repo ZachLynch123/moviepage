@@ -42,7 +42,6 @@ class Details extends React.Component {
                 voteAverage: jsonData.vote_average,
                 isLoaded: true
             });
-            console.log(jsonData);
                         
         } catch(e) {
             console.log(e);
@@ -79,6 +78,8 @@ class Details extends React.Component {
                     onlyTrailers.push(jsonData.results[i]);
                 }
             }
+            console.log(onlyTrailers);
+            
             
             this.setState({
                 trailerList: onlyTrailers
