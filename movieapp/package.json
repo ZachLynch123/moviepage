@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://zachlynch123.github.io/moviepage",
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
     "gh-pages": "^2.0.1",

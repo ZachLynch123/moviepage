@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -6,22 +7,15 @@ const Navbar = () => {
     <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-                <a className="nav-link" href="/home">Left</a>
-            </li>
-            
-            <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <Link className="nav-link" to="/">Left</Link>
             </li>
         </ul>
     </div>
     <div className="mx-auto order-0">
-        <a className="navbar-brand mx-auto" href="#">Zach's Movie Page</a>
+        <div className="form-group">
+            <input type="text" className="form-control" id="search" placeholder="Search.."></input>
+        </div>
+        
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
             <span className="navbar-toggler-icon"></span>
         </button>
