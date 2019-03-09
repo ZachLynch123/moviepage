@@ -28,6 +28,7 @@ state = {
     })
   }
 
+  // put every keystroke into state's search key
   handleSearch = event => {
     this.setState({
       searchMovie: event.target.value
@@ -36,6 +37,7 @@ state = {
     
   }
 
+  // sets state of redirect to true to handle submit
   handleSubmit = event => {
     event.preventDefault();
     console.log('SUBMITTED');
@@ -73,6 +75,7 @@ state = {
   render() {
     const { isLoaded, nowPlaying, topRated, upcoming } = this.state;
     if (isLoaded){
+      // Uses react router redirect to mount search component
       if(this.state.redirect) {
         return <Redirect push to={`/search/${this.state.searchMovie}`} />
       }
