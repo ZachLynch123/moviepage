@@ -17,13 +17,20 @@ state = {
     movieId: 0,
     genres: [],
     isLoaded: false,
-    BASE_URL: 'https://image.tmdb.org/t/p/original'
+    BASE_URL: 'https://image.tmdb.org/t/p/original',
+    searchMovie: ''
   }
 
   setMovieId = id => {
     this.setState({
       movieId: id
     })
+  }
+
+  handleSearch = event => {
+    this.setState({
+      searchMovie: event.target.value
+    });
   }
 
   // React lifecycle component (initial) that fetches all the data needed on this page in 1 axious request
