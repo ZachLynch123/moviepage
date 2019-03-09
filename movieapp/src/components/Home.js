@@ -77,7 +77,10 @@ state = {
     if (isLoaded){
       // Uses react router redirect to mount search component
       if(this.state.redirect) {
-        return <Redirect push to={`/search/${this.state.searchMovie}`} />
+        return <Redirect to={{
+          pathname: `/search/${this.state.searchMovie}`,
+          data: this.state.searchMovie
+        }} />
       }
       
     return (
