@@ -7,7 +7,7 @@ import Slider from 'react-slick'
 import Footer from './Footer'
 import MovieImageSlider from './MovieImageSlider';
 import Header from './Header'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Home extends Component {
 state = {
@@ -18,7 +18,8 @@ state = {
     genres: [],
     isLoaded: false,
     BASE_URL: 'https://image.tmdb.org/t/p/original',
-    searchMovie: ''
+    searchMovie: '',
+    redirect: false
   }
 
   setMovieId = id => {
@@ -31,6 +32,18 @@ state = {
     this.setState({
       searchMovie: event.target.value
     });
+    console.log(this.state.searchMovie);
+    
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log('SUBMITTED');
+    this.setState({
+      redirect: true
+    })
+    
+    return <Link to={`search/${this.state.searchMovie}`}/>
   }
 
   // React lifecycle component (initial) that fetches all the data needed on this page in 1 axious request
@@ -60,10 +73,13 @@ state = {
   render() {
     const { isLoaded, nowPlaying, topRated, upcoming } = this.state;
     if (isLoaded){
+      if(this.state.redirect) {
+        return <Redirect push to={`/search/${this.state.searchMovie}`} />
+      }
       
     return (
       <div className="App">
-      <NavBar />
+      <NavBar value={this.state.searchMovie} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
       <Header data={nowPlaying} setMovieid={this.setMovieId} />      
 
         <div className="container">

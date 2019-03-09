@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Details from './components/Details/Details'
 import Login from './components/login';
 import Guest from './components/Guest';
+import Search from './components/Search';
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/details" component={Details} />
           <Route path = "/login" component={Login} />
           <Route path="/profile/guest" component={Guest} />
+          <Route path="/search" component={Search} />
         </div>
       </BrowserRouter>
     )
