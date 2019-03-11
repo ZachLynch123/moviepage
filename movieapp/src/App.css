@@ -125,6 +125,27 @@ h2 {
   width: 250px;
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 768px) {
+  .carousel-inner>.item>a>img {
+    height: 58vh;
+  }
 
+  .slick-next {
+    left: 32.5rem!important;
+  }
+
+  .slick-prev {
+    left: -1rem;
+  }
+
+  .main-footer {
+    padding-top: 7%;
+    padding-left: 10%;
+  }
+  
+  .main-footer-bottom {
+    grid-column: 1 / 5;
+    text-align: center;
+    padding-top: 5%;
+  }
 }
