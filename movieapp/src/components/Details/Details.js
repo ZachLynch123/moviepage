@@ -119,12 +119,31 @@ class Details extends React.Component {
         return <p>hello</p>
     }
 
+    trailerBoolean = trailerArray => {
+        if (trailerArray.length >= 2 && this.state.isLoaded) {
+            return (
+                <Slider {...trailerSettings}>
+                            {
+                                trailerArray.map((trailer, key) => 
+                                <Trailers data={trailer} /> 
+                                )
+                            }
+                        </Slider>
+            );
+        } else if (trailerArray.length === 1 && this.state.isLoaded) {
+            
+            return(
+                <Trailers data={trailerArray[0]} />
+            );
+        }
+    }
+
     render() {
         const headerStyle = {
             background: `linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%) center center no-repeat, url(https://image.tmdb.org/t/p/original${this.state.backdrop}) center top no-repeat rgb(255, 255, 255)`
         }
-          const { castList, reviewList, trailerList } = this.state         
-
+          const { castList, reviewList, trailerList, isLoaded } = this.state         
+        if (isLoaded){
         return(
             <div className="item-details">
                 <div className="item-details-header" style={headerStyle}>
@@ -155,13 +174,7 @@ class Details extends React.Component {
                     </div>
                     <div className="item-details-main-trailers">
                         <h1 className="item-details-main-title">Trailers</h1>
-                        <Slider {...trailerSettings}>
-                            {
-                                trailerList.map((trailer, key) => 
-                                <Trailers data={trailer} /> 
-                                )
-                            }
-                        </Slider>
+                        {this.trailerBoolean(trailerList)}
                     </div>
                     <div className="item-details-main-reviews">
                         <h1 className="item-details-main-title">Reviews</h1>
@@ -169,7 +182,9 @@ class Details extends React.Component {
                     </div>
                 </div>
             </div>
-        )
+        )} else {
+            return(<h1>Loading..</h1>)
+        }
     }
 }
 
