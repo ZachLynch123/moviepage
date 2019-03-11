@@ -133,7 +133,9 @@ class Details extends React.Component {
         } else if (trailerArray.length === 1 && this.state.isLoaded) {
             
             return(
-                <Trailers data={trailerArray[0]} />
+                <div className="item-details-main-single-trailer">
+                    <Trailers data={trailerArray[0]} />
+                </div>
             );
         }
     }

@@ -40,6 +40,9 @@ body {
     margin-block-end: .83em; 
     text-transform: uppercase;
 }
+.item-details-main-single-trailer {
+    text-align: center;
+}
 
 .item-details-main-overview {
     font-size: 1.7em;
