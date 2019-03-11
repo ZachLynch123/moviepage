@@ -3,9 +3,18 @@ module.exports = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 7,
     slidesToScroll: 1,
     responsive: [
+      {
+        breakpoint: 1281,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      },
       {
         breakpoint: 1024,
         settings: {

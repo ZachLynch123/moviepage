@@ -14,15 +14,6 @@ h3 {
   font-size: 2rem;
 }
 
-.logo {
-  background: url("./img/marker.png");
-  background: #03001e;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 50%;
-  width: 70px;
-  max-height: 60px;
-}
 
 .navbar {
   margin-bottom: 0px!important;
@@ -36,12 +27,11 @@ h3 {
   width: 100vw;
 }
 
-.carousel-inner>.item>img {
-  width: 100vw;
-}
+
 
 .carousel-inner>.item>a>img {
-  width: 100%!important
+  width: 100%!important;
+  height: 100vh;
 }
 
 #header .carousel-indicators {
@@ -56,9 +46,7 @@ h3 {
   text-align: left;
 }
 
-.carousel-inner>.item>img {
-  height: 100vh;
-}
+
 
 
 
@@ -135,4 +123,8 @@ h2 {
 
 .main-footer-bottom-img {
   width: 250px;
+}
+
+@media (min-width: 1200px) {
+
 }
