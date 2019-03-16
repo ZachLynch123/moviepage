@@ -51,8 +51,7 @@ class Search extends React.Component {
                             <SearchResults data={movie} />
                         )
                     }
-                </div>
-                
+                </div>                
                 <Footer />
             </div>
         )

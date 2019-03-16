@@ -3,7 +3,10 @@
     grid-template-columns: repeat(3, 150px);
     justify-content: center;
     grid-column-gap: 4rem;
+    margin: 0 auto -50px;
+    min-height: calc(100vh - 70px);
 }
+
 
 
 
