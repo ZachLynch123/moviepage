@@ -3,6 +3,7 @@ import keys from '../../keys';
 import Navbar from '../Navbar';
 import SearchResults from './SearchResults'
 import Footer from '../Footer';
+import './styles.css'
 
 class Search extends React.Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class Search extends React.Component {
 
         this.state = {
             movieSearched: unescape(window.location.pathname.split('/').slice(-1)[0]),
-            movieArray: []
+            movieArray: [],
+            searchPage: 1
         }
     }
 
@@ -22,7 +24,7 @@ class Search extends React.Component {
     async getMovieList() {
          try {
              const data = await fetch(`
-             https://api.themoviedb.org/3/search/movie?api_key=${keys.apiKey}&language=en-US&query=${this.state.movieSearched}&page=1&include_adult=false`);
+             https://api.themoviedb.org/3/search/movie?api_key=${keys.apiKey}&language=en-US&query=${this.state.movieSearched}&page=${this.state.searchPage}&include_adult=false`);
              const jsonData = await data.json();             
              console.log(jsonData.results);
              this.setState({

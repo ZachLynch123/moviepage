@@ -1,0 +1,16 @@
+.search-results-main {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    justify-content: center;
+    grid-column-gap: 4rem;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .search-results-main {
+        grid-template-columns: 130px 130px;
+        grid-column-gap: 2.5rem;
+    }
+}

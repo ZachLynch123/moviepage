@@ -85,7 +85,7 @@ state = {
       
     return (
       <div className="App">
-      <NavBar value={this.state.searchMovie} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
+      {/* <NavBar value={this.state.searchMovie} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} /> */}
       <Header data={nowPlaying} setMovieid={this.setMovieId} />      
 
         <div className="container">
