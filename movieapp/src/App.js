@@ -5,7 +5,7 @@ import Home from './components/Home'
 import Details from './components/Details/Details'
 import Login from './components/login';
 import Guest from './components/Guest';
-import Search from './components/Search';
+import Search from './components/search/Search';
 
 
 class App extends Component {

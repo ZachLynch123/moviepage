@@ -1,8 +1,8 @@
 import React from 'react';
-import keys from '../keys';
-import Navbar from './Navbar';
+import keys from '../../keys';
+import Navbar from '../Navbar';
 import SearchResults from './SearchResults'
-import Footer from './Footer';
+import Footer from '../Footer';
 
 class Search extends React.Component {
     constructor(props) {
@@ -43,11 +43,14 @@ class Search extends React.Component {
                 <Navbar />
                 <h1>Results for {movieSearched}</h1>
                 <hr />
-                {
-                    movieArray.map((movie, key) => 
-                        <SearchResults data={movie} />
-                    )
-                }
+                <div className="search-results-main">
+                    {
+                        movieArray.map((movie, key) => 
+                            <SearchResults data={movie} />
+                        )
+                    }
+                </div>
+                
                 <Footer />
             </div>
         )
