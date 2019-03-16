@@ -19,6 +19,14 @@ h3 {
   margin-bottom: 0px!important;
 }
 
+.nav-link {
+  font-size: 4rem;
+}
+
+.input-group {
+  width: 20rem!important
+}
+
 .item img{
   filter: brightness(.65);
 }

@@ -8,7 +8,7 @@ const Navbar = (props) => {
     <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-                <Link className="nav-link" to="/">Left</Link>
+                <Link className="nav-link" to="/">Home</Link>
             </li>
         </ul>
     </div>
@@ -29,10 +29,7 @@ const Navbar = (props) => {
     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-                <a className="nav-link" href="#">Right</a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <a className="nav-link" href="#"></a>
             </li>
         </ul>
     </div>

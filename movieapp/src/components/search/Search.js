@@ -42,8 +42,7 @@ class Search extends React.Component {
         const { movieArray, movieSearched } = this.state;
         return(
             <div>
-                <Navbar />
-                <h1>Results for {movieSearched}</h1>
+                <h1 className="search-results-title">Results for {movieSearched}</h1>
                 <hr />
                 <div className="search-results-main">
                     {
@@ -51,7 +50,7 @@ class Search extends React.Component {
                             <SearchResults data={movie} />
                         )
                     }
-                </div>                
+                </div>               
                 <Footer />
             </div>
         )
