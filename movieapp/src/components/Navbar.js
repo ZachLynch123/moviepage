@@ -9,7 +9,7 @@ const Navbar = (props) => {
         <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
                 <Link className="nav-link" to="/">Home</Link>
-            </li>
+            </li> 
         </ul>
     </div>
     <div className="mx-auto order-0">
