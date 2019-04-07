@@ -4,6 +4,7 @@ import Navbar from '../Navbar';
 import SearchResults from './SearchResults'
 import Footer from '../Footer';
 import './styles.css'
+import Back from '../Back';
 
 class Search extends React.Component {
     constructor(props) {
@@ -42,6 +43,7 @@ class Search extends React.Component {
         const { movieArray, movieSearched } = this.state;
         return(
             <div>
+                <Back />
                 <h1 className="search-results-title">Results for {movieSearched}</h1>
                 <hr />
                 <div className="search-results-main">
