@@ -50,14 +50,14 @@ body {
 }
 
 
-@media only screen and (max-width: 1200px) {
+@media (max-width: 768px) {
     .item-details-info-container {
-        padding-top: 45%;
+        padding-top: 77%;
     }
-}
 
-@media only screen and  (max-width: 900px) {
-    .item-details-info-container {
-        padding-top: 53%;
+    .item-details-main {
+        max-width: 100%;
+        padding: 6% 5%;
     }
+
 }
