@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Back = () => {
     return (
-        <Link to="/"><i class="fas fa-arrow-left"></i></Link>
+        <Link to="/" className="back-button"><i className="fas fa-arrow-left"></i></Link>
     )
 }
 
