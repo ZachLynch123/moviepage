@@ -4,7 +4,7 @@ import Navbar from '../Navbar';
 import SearchResults from './SearchResults'
 import Footer from '../Footer';
 import './styles.css'
-import Back from '../Back';
+import Back from '../backButton/Back';
 
 class Search extends React.Component {
     constructor(props) {
