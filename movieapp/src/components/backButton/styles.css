@@ -1,0 +1,11 @@
+.back-button {
+    color: rgba(255, 255, 255, .5);
+    text-decoration: none;
+    font-size: 2rem;
+    transition: .5s;
+}
+
+.back-button:hover {
+    color: #fff;
+    font-size: 2.2rem;
+}
