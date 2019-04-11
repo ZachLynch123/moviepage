@@ -17,7 +17,7 @@ const MovieImageSlider = (props) => {
             <Link to={`/details/${id}`}><img className="card-img-top" src={BASE_URL + poster_path} alt="#" /></Link>
             <div className="card-title">
                 {title}
-            </div>
+            </div> 
         </div>
     );
 }
